@@ -1,0 +1,39 @@
+Name:           openwsman-yast
+Version:       @PACKAGE_VERSION@
+Release:        2
+License:        BSD
+Url:            http://build.opensuse.org/project/show?project=home%3Akwk
+Source:         %{name}-%{version}.tar.bz2
+BuildRoot:      %{_tmppath}/%{name}-%{version}-build
+Group:          Applications/Management
+BuildRequires:  openwsman >= 1.1.0 openwsman-devel >= 1.1.0 gcc-c++ pkgconfig libxml2-devel yast2-core-devel libxcrypt-devel
+Requires:       openwsman >= 1.1.0
+Requires:	yast2-core
+Summary:        YaST as a WebService
+
+
+%description
+YaST as a WebService
+
+
+%prep
+%setup
+
+%build
+%configure --prefix=/usr --libdir=%{_libdir} --sysconfdir=/etc --docdir=/usr/share/doc/packages/openwsman --disable-static
+make
+
+%install
+make DESTDIR=%{buildroot} install
+rm %{buildroot}%{_libdir}/openwsman/plugins/*.la
+
+%clean
+rm -rf "$RPM_BUILD_ROOT"
+
+%files
+%defattr(-,root,root)
+%dir %{_libdir}/openwsman
+%dir %{_libdir}/openwsman/plugins
+%{_libdir}/openwsman/plugins/*so*
+
+%changelog

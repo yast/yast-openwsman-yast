@@ -1,0 +1,23 @@
+-------------------------------------------------------------------
+Fri Jun 29 15:34:40 CEST 2007 - kkaempf@suse.de
+
+- xml-ify return message. Don't return YCPValue as string.
+  requires updated rwsman bindings (Xmlnode.attr())
+
+-------------------------------------------------------------------
+Wed Jun 27 22:06:50 CEST 2007 - kkaempf@suse.de
+
+- add post-install script to add plugin namespace to openwsman.conf
+  add pre-uninstall to take it out again
+
+-------------------------------------------------------------------
+Wed Jun 27 21:31:28 CEST 2007 - kkaempf@suse.de
+
+- Use pkg-config to check and determine minimal openwsman version.
+- Set interface version to match openwsman we build against.
+
+-------------------------------------------------------------------
+Wed Jun 27 15:30:56 CEST 2007 - kkaempf@suse.de
+
+- Initial release for openSUSE build service
+
