@@ -9,11 +9,13 @@ Group:          Applications/Management
 BuildRequires:  openwsman >= 1.1.0 openwsman-devel >= 1.1.0 gcc-c++ pkgconfig libxml2-devel yast2-core-devel libxcrypt-devel
 Requires:       openwsman >= 1.1.0
 Requires:	yast2-core
-Summary:        YaST as a WebService
+Summary:        YaST plugin for openwsman
 
 
 %description
-YaST as a WebService
+This package provides a plugin for the openwsman server
+to make YaST functionality available via the WS-Management
+protocol.
 
 
 %prep
