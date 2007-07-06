@@ -221,5 +221,4 @@ AC_CONFIG_FILES([
 AC_OUTPUT([
         Makefile
         src/Makefile
-        src/openwsman/Makefile
 	])

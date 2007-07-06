@@ -1,5 +1,6 @@
-SUBDIRS = openwsman
- 
+#
+# Makefile.am for openwsman-yast/src
+#
 plugindir = @WSMAN_PLUGIN_DIR@
 y2plugindir = $(libdir)/YaST2/plugin
 

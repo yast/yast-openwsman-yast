@@ -56,8 +56,6 @@
 #include <wsman-xml-api.h>
 #include <wsman-xml-serializer.h>
 
-#include <wsman-dispatcher.h>
-
 #include "yast.h"
 
 
@@ -117,9 +115,7 @@ YaST_Custom_EP( SoapOpH op,
 
 	// retrieve the custom action
 
-	op_t *_op = (op_t *)op;
-	WsmanMessage *msg = (WsmanMessage *)_op->data;
-
+	WsmanMessage *msg = wsman_get_msg_from_op( op );
 	if (!msg) {
 	    status.fault_code = WSMAN_INTERNAL_ERROR;
 	    status.fault_detail_code = WSMAN_DETAIL_FORMAT_MISMATCH;
