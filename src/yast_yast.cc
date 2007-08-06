@@ -135,7 +135,7 @@ term2xml ( YCPTerm t, WsXmlNodeH node )
 static int
 xmlify( YCPValue result, WsXmlNodeH node )
 {
-    char *name = NULL; const char *value;
+    const char *name = NULL; const char *value;
 
     switch (result->valuetype()) {
 	case YT_RETURN:
