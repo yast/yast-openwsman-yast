@@ -1,4 +1,21 @@
 -------------------------------------------------------------------
+Sun Aug 12 12:33:19 CEST 2007 - kkaempf@suse.de
+
+- fix compiler warnings, don't link against libyui.
+
+-------------------------------------------------------------------
+Fri Aug  3 11:27:47 CEST 2007 - kkaempf@suse.de
+
+- update version and openwsman dependencies to match the
+  1.2.0 release of openwsman.
+
+-------------------------------------------------------------------
+Fri Jul  6 11:42:44 CEST 2007 - kkaempf@suse.de
+
+- adapt to svn rev 1570 of openwsman
+  remove api hacks from source, openwsman provides everything now.
+
+-------------------------------------------------------------------
 Fri Jun 29 15:34:40 CEST 2007 - kkaempf@suse.de
 
 - xml-ify return message. Don't return YCPValue as string.

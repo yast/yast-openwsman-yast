@@ -10,9 +10,8 @@ YAST2CORE =				\
 	$(y2plugindir)/libpy2wfm.la	\
 	$(y2plugindir)/libpy2scr.la	\
 	$(libdir)/libycp.la		\
-	$(libdir)/liby2.la		\
-	$(libdir)/libyui.la
-
+	$(libdir)/liby2.la
+ 
 INCLUDES = \
 	-I$(top_srcdir)/src/openwsman	\
 	-I/usr/include/openwsman	\

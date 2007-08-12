@@ -6,8 +6,8 @@ Url:            http://build.opensuse.org/project/show?project=home%3Akwk
 Source:         %{name}-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 Group:          Applications/Management
-BuildRequires:  openwsman >= 1.1.0 openwsman-devel >= 1.1.0 gcc-c++ pkgconfig libxml2-devel yast2-core-devel libxcrypt-devel
-Requires:       openwsman >= 1.1.0
+BuildRequires:  openwsman >= 1.2.0 openwsman-devel >= 1.2.0 gcc-c++ pkgconfig libxml2-devel yast2-core-devel libxcrypt-devel
+Requires:       openwsman-server >= 1.2.0
 Requires:	yast2-core
 Summary:        YaST plugin for openwsman
 
