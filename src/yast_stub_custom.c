@@ -186,7 +186,7 @@ YaST_Custom_EP( SoapOpH op,
 	char *ycp = hnode_get( ycpnode );
 
 	// create response
-	out_doc = wsman_create_response_envelope( cntx, in_doc , NULL );
+	out_doc = wsman_create_response_envelope( in_doc , NULL );
 
 	WsXmlNodeH out_body = ws_xml_get_soap_body( out_doc );
 
@@ -207,7 +207,7 @@ cleanup:
 	    if (out_doc) {
 		ws_xml_destroy_doc( out_doc );
 	    }
-	    out_doc = wsman_generate_fault( cntx, in_doc, status.fault_code,
+	    out_doc = wsman_generate_fault( in_doc, status.fault_code,
 				status.fault_detail_code, NULL );
 	}
 

@@ -88,8 +88,7 @@ YaST_Identify_EP( WsContextH cntx )
 
     // build response envelope
 
-    WsXmlDocH in_doc = ws_get_context_xml_doc_val( cntx, WSFW_INDOC );
-    WsXmlDocH doc = wsman_create_response_envelope( cntx, in_doc , NULL );
+    WsXmlDocH doc = wsman_create_response_envelope( cntx->indoc , NULL );
     WsXmlNodeH node = ws_xml_add_child( ws_xml_get_soap_body( doc ), XML_NS_WSMAN_ID, WSMID_IDENTIFY_RESPONSE, NULL );
 
     // build response body
