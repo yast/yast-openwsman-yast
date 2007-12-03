@@ -54,7 +54,7 @@
 #include <wsman-soap.h>
 #include <wsman-soap-envelope.h>
 #include <wsman-xml-api.h>
-#include <wsman-xml-serializer.h>
+#include <wsman-xml-serialize.h>
 
 #include "yast.h"
 
@@ -99,7 +99,7 @@ YaST_Identify_EP( WsContextH cntx )
 //      <wsmid:ProductVersion>1.1.0rc1</wsmid:ProductVersion>
 //    </wsmid:IdentifyResponse>
 
-    int result = ws_serialize( cntx,
+    int result = ws_serialize( ws_serializer_init(),
 			node,			// WsXmlNodeH xmlNode,
 			&yast_identify,		// XML_TYPE_PTR dataPtr,
 			Wsmid_Identify_TypeInfo,// XmlSerializerInfo * info,

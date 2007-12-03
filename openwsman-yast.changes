@@ -1,4 +1,9 @@
 -------------------------------------------------------------------
+Wed Nov 28 16:39:42 CEST 2007 - kkaempf@suse.de
+
+- api adaption to openwsman 1.5.x
+
+-------------------------------------------------------------------
 Sun Aug 12 12:33:19 CEST 2007 - kkaempf@suse.de
 
 - fix compiler warnings, don't link against libyui.
