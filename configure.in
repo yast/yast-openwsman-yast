@@ -3,7 +3,7 @@ dnl *** Initialize automake and set version ***
 dnl *******************************************
 
 AC_PREREQ(2.53)
-AC_INIT(openwsman-yast, 1.2.0)
+AC_INIT(openwsman-yast, 1.5.1)
 AC_CONFIG_SRCDIR(src/yast.c)
 AM_INIT_AUTOMAKE(AC_PACKAGE_NAME, AC_PACKAGE_VERSION)
 
@@ -11,9 +11,9 @@ AM_CONFIG_HEADER(wsman_yast_config.h)
 AM_MAINTAINER_MODE
 AC_PROG_MAKE_SET
 
-PKG_CHECK_MODULES(WSMAN, openwsman >= 1.0, [
+PKG_CHECK_MODULES(WSMAN, openwsman >= 1.5, [
 	WSMAN_VERSION=`$PKG_CONFIG --modversion openwsman`],[
-	AC_MSG_ERROR([need openwsman-devel version 1.0 or greater], [-1])])
+	AC_MSG_ERROR([need openwsman-devel version 1.5 or greater], [-1])])
 AC_SUBST(WSMAN_VERSION)
 
 dnl ***************************
