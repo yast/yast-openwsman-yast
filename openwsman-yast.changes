@@ -4,6 +4,11 @@ Wed Nov 28 16:39:42 CEST 2007 - kkaempf@suse.de
 - api adaption to openwsman 1.5.x
 
 -------------------------------------------------------------------
+Mon Nov 12 10:18:20 CET 2007 - prusnak@suse.cz
+
+- renamed openwsman-devel to libwsman-devel in BuildRequires
+
+-------------------------------------------------------------------
 Sun Aug 12 12:33:19 CEST 2007 - kkaempf@suse.de
 
 - fix compiler warnings, don't link against libyui.
