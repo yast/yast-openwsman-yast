@@ -9,23 +9,6 @@
 
 #define y2log_component "openwsman"
 
-#include <wsman-xml-api.h>
-
-#ifdef LOG_DEBUG
-#undef LOG_DEBUG
-#endif
-#ifdef LOG_WARNING
-#undef LOG_WARNING
-#endif
-#ifdef error
-#undef error
-#endif
-#ifdef warning
-#undef warning
-#endif
-#ifdef debug
-#undef debug
-#endif
 
 #include <ycp/ExecutionEnvironment.h>
 #include <y2/Y2Component.h>
@@ -42,6 +25,7 @@
 
 #include "yast.h"
 
+#include <wsman-xml-api.h>
 
 void
 yast_initialize()
