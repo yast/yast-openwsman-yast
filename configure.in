@@ -13,7 +13,7 @@ AC_PROG_MAKE_SET
 
 PKG_CHECK_MODULES(WSMAN, openwsman >= 1.5, [
 	WSMAN_VERSION=`$PKG_CONFIG --modversion openwsman`],[
-	AC_MSG_ERROR([need libwsman-devel version 1.5 or greater], [-1])])
+	AC_MSG_ERROR([need openwsman-devel version 1.5 or greater], [-1])])
 AC_SUBST(WSMAN_VERSION)
 
 dnl ***************************
