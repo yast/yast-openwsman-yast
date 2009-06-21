@@ -13,10 +13,10 @@ Summary:        YaST plugin for openwsman-server
 
 
 %description
-This package provides a plugin for the openwsman server
-to make YaST functionality available via the WS-Management
-protocol.
-
+This package provides a YaST plugin for wsmand, the WS Management
+Daemon. The plugin makes YaST (the ycp layer api) remotely accessible.
+Combined with rwsman (the openwsman client bindings for Ruby) and Ruby
+On Rails, one can e.g. easily create a Web interface for YaST.
 
 %prep
 %setup
