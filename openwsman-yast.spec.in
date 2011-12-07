@@ -1,7 +1,7 @@
 Name:           openwsman-yast
 Version:       @PACKAGE_VERSION@
 Release:        2
-License:        BSD
+License:        BSD-3-Clause
 Url:            http://build.opensuse.org/project/show?project=home%3Akwk
 Source:         %{name}-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
