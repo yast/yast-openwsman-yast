@@ -1,4 +1,26 @@
 -------------------------------------------------------------------
+Thu Dec  8 14:14:23 UTC 2011 - kkaempf@suse.com
+
+- Version 1.5.10
+  - Requires Openwsman >= 2.2.x
+  - Fix argument extraction for 'eval'
+
+-------------------------------------------------------------------
+Thu Dec  8 11:05:12 UTC 2011 - kkaempf@suse.com
+
+- fix plugin API version
+
+-------------------------------------------------------------------
+Tue Oct 18 10:48:02 UTC 2011 - kkaempf@suse.com
+
+- update to current YaST and OpenWSMAN API
+
+-------------------------------------------------------------------
+Thu May 20 02:07:26 CEST 2010 - ro@suse.de
+
+- fix build on factory 
+
+-------------------------------------------------------------------
 Wed Nov 28 16:39:42 CEST 2007 - kkaempf@suse.de
 
 - api adaption to openwsman 1.5.x
