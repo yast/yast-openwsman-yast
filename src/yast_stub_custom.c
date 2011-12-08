@@ -72,7 +72,7 @@ debug_hash( hash_t *hash, const char *header )
 
     hnode_t *node;
     while ((node = hash_scan_next( &ptr )) ) {
-	debug ( "YaST:   hash [%s] = [%s]", hnode_getkey( node ), hnode_get( node ) );
+	debug ( "YaST:   hash [%s] = [%p]", hnode_getkey( node ), hnode_get( node ) );
     }
     return;
 }
@@ -98,7 +98,8 @@ YaST_Custom_EP( SoapOpH op,
 	// retrieve the incoming SOAP message, the body and the context
 	SoapH soap = soap_get_op_soap( op );
 	in_doc = soap_get_op_doc( op, 1 );
-
+#if 0
+        /* debug only */
 	if (in_doc) {
 	    char *buf = NULL; int size;
 
@@ -106,7 +107,7 @@ YaST_Custom_EP( SoapOpH op,
 
 	    ws_xml_dump_memory_node_tree( node, &buf, &size );
 	}
-
+#endif
 	WsContextH cntx = ws_create_ep_context( soap, in_doc );
 	if (!cntx) {
 	    error( "Cannot create context" );
@@ -155,7 +156,6 @@ YaST_Custom_EP( SoapOpH op,
 
 	hash_t *method_args = wsman_get_method_args( cntx, resource_uri );
 	debug_hash( method_args, "YaST: method args" );
-
 	if ( !method_args ) {					// args given ?
 	    status.fault_code = WSMAN_INVALID_PARAMETER;
 	    status.fault_detail_code = WSMAN_DETAIL_MISSING_VALUES;
@@ -173,17 +173,39 @@ YaST_Custom_EP( SoapOpH op,
 
 	debug ("YaST: YCP/eval called" );
 	// property for 'eval' must be 'ycp'
-	hnode_t *ycpnode = hash_lookup( method_args, "ycp" );
-	debug ("YaST: 'ycp' node @ %p", ycpnode );
-	if (!ycpnode) {
+        hnode_t *hn = hash_lookup( method_args, METHOD_ARGS_KEY );
+	debug ("YaST: %s @ %p", METHOD_ARGS_KEY, hn );
+        if (!hn) {
 	    status.fault_code = WSMAN_SCHEMA_VALIDATION_ERROR;
 	    status.fault_detail_code = WSMAN_DETAIL_INVALID_VALUE;
-	    debug( "YaST: no 'ycp' property found for 'eval'" );
+	    debug( "YaST: no method args found for 'eval'" );
 	    goto cleanup;
 	}
-
+        list_t *arglist = (list_t *)hnode_get(hn);
+        int arglen = list_count(arglist);
+        lnode_t *argnode = list_first(arglist);
+	if (!argnode) {
+	    status.fault_code = WSMAN_SCHEMA_VALIDATION_ERROR;
+	    status.fault_detail_code = WSMAN_DETAIL_INVALID_VALUE;
+	    debug( "YaST: argument list is empty for 'eval'" );
+	    goto cleanup;
+	}
+        methodarglist_t *arraynode = (methodarglist_t *)argnode->list_data;
+        if (!arraynode || strcmp(arraynode->key, "ycp")) {
+	    status.fault_code = WSMAN_SCHEMA_VALIDATION_ERROR;
+	    status.fault_detail_code = WSMAN_DETAIL_INVALID_VALUE;
+	    debug( "YaST: missing 'ycp' argument for 'eval'" );
+	    goto cleanup;
+	}
+        selector_entry *sentry = (selector_entry *)arraynode->data;
+	if (!sentry) {
+	    status.fault_code = WSMAN_SCHEMA_VALIDATION_ERROR;
+	    status.fault_detail_code = WSMAN_DETAIL_INVALID_VALUE;
+	    debug( "YaST: 'ycp' argument for 'eval' has no data" );
+	    goto cleanup;
+	}
 	// get value of "ycp"
-	char *ycp = hnode_get( ycpnode );
+	char *ycp = sentry->entry.text;
 
 	// create response
 	out_doc = wsman_create_response_envelope( in_doc , NULL );
