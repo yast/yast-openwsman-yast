@@ -14,6 +14,7 @@ extern "C" {
 #include <wsman-xml-serializer.h>
 
 #include <wsman-declarations.h>
+#include <u/libu.h>
 
 // The resource is modeled as an xml string
 // see below: SER_DECLARE_TYPE
