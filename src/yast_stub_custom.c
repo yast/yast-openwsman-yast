@@ -183,7 +183,6 @@ YaST_Custom_EP( SoapOpH op,
 	}
 
         list_t *arglist = (list_t *)hnode_get(hn);
-        int arglen = list_count(arglist);
         lnode_t *argnode = list_first(arglist);
 	if (!argnode) {
 	    status.fault_code = WSMAN_SCHEMA_VALIDATION_ERROR;
