@@ -130,7 +130,7 @@ void get_endpoints(void *self, void **data)
     WsDispatchInterfaceInfo *ifc = (WsDispatchInterfaceInfo *)data;	
     ifc->flags = 0;
     ifc->actionUriBase = NULL;
-    ifc->version = WSMAN_VERSION;
+    ifc->version = "2.2";
     ifc->vendor = "Novell, Inc.";
     ifc->displayName = "YaST";
     ifc->notes = "Return value from call";
