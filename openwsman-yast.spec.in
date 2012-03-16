@@ -23,7 +23,7 @@ Url:            http://build.opensuse.org/project/show?project=systemsmanagement
 Source:         %{name}-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 Group:          System/Management
-BuildRequires:  openwsman >= 2.2.0 libwsman-devel >= 2.2.0 gcc-c++ pkgconfig libxml2-devel yast2-core-devel libxcrypt-devel
+BuildRequires:  openwsman >= 2.2.0 libwsman-devel >= 2.2.0 gcc-c++ pkgconfig libxml2-devel yast2-core-devel
 Requires:       openwsman-server >= 2.2.0
 Requires:	yast2-core
 Summary:        YaST plugin for openwsman-server
