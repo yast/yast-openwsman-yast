@@ -84,7 +84,7 @@ debug_hash( hash_t *hash, const char *header )
  */
 
 int
-YaST_Custom_EP( SoapOpH op,
+t_YaST_Custom_EP( SoapOpH op,
 		void* appData,
 		void *opaqueData )
 {

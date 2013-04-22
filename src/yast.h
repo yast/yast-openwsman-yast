@@ -22,32 +22,32 @@ struct __wsm_yast
 {
     char *xml;
 };
-typedef struct __wsm_yast YaST;
+typedef struct __wsm_yast t_YaST;
 
 // Service endpoint declaration
-int YaST_Identify_EP( WsContextH cntx );
+int t_YaST_Identify_EP( WsContextH cntx );
 
-int YaST_Enumerate_EP( WsContextH cntx, WsEnumerateInfo* enumInfo,
+int t_YaST_Enumerate_EP( WsContextH cntx, WsEnumerateInfo* enumInfo,
 		WsmanStatus *status,
 		void *opaqueData );
 
-int YaST_Release_EP( WsContextH cntx, WsEnumerateInfo* enumInfo,
+int t_YaST_Release_EP( WsContextH cntx, WsEnumerateInfo* enumInfo,
 		WsmanStatus *status,
 		void *opaqueData );
 
-int YaST_Pull_EP( WsContextH cntx, WsEnumerateInfo* enumInfo,
+int t_YaST_Pull_EP( WsContextH cntx, WsEnumerateInfo* enumInfo,
 		WsmanStatus *status,
 		void *opaqueData );
 
-int YaST_Get_EP( SoapOpH op, void* appData, void *opaqueData );
+int t_YaST_Get_EP( SoapOpH op, void* appData, void *opaqueData );
 
-int YaST_Custom_EP( SoapOpH op, void* appData, void *opaqueData );
+int t_YaST_Custom_EP( SoapOpH op, void* appData, void *opaqueData );
 
-int YaST_Put_EP( SoapOpH op, void* appData, void *opaqueData );
+int t_YaST_Put_EP( SoapOpH op, void* appData, void *opaqueData );
 
-int YaST_Create_EP( SoapOpH op, void* appData, void *opaqueData );
+int t_YaST_Create_EP( SoapOpH op, void* appData, void *opaqueData );
 
-int YaST_Delete_EP( SoapOpH op, void* appData, void *opaqueData );
+int t_YaST_Delete_EP( SoapOpH op, void* appData, void *opaqueData );
 
 
 
@@ -56,8 +56,8 @@ int YaST_Delete_EP( SoapOpH op, void* appData, void *opaqueData );
 // extern struct __XmlSerializerInfo YaST_TypeInfo[];
 // End point array declaration for the resource
 // extern WsDispatchEndPointInfo YaST_EndPoints[];
-SER_DECLARE_TYPE(YaST);
-DECLARE_EP_ARRAY(YaST);
+SER_DECLARE_TYPE(t_YaST);
+DECLARE_EP_ARRAY(t_YaST);
 
 void get_endpoints(void *self, void **data);
 int init (void *self, void **data );

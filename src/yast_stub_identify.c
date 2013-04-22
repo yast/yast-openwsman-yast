@@ -65,7 +65,7 @@
  */
 
 int
-YaST_Identify_EP( WsContextH cntx )
+t_YaST_Identify_EP( WsContextH cntx )
 {
     // The resource is defined by the WS-Man standard and modeled as a struct
     struct __wsmid_identify

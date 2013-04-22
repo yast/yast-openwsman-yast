@@ -66,8 +66,8 @@
 // It creates an array of items with name YaST_TypeInfo 
 // It can be used in calls to WsSerialize and WsDeserialize 
 //
-SER_START_ITEMS( YaST )
-SER_END_ITEMS( YaST );
+SER_START_ITEMS( t_YaST )
+SER_END_ITEMS( t_YaST );
 
 
 // ************** Array of end points for resource ****************
@@ -75,25 +75,25 @@ SER_END_ITEMS( YaST );
 // Must follow general convention xxx_EndPoints
 //
 
-START_END_POINTS( YaST )
-  END_POINT_IDENTIFY( YaST, XML_NS_WSMAN_YAST ),			// Identify
-//  END_POINT_TRANSFER_DIRECT_CREATE( YaST, XML_NS_WSMAN_YAST ),	// Create
-//  END_POINT_TRANSFER_DIRECT_GET( YaST, XML_NS_WSMAN_YAST ),		// Get
-//  END_POINT_TRANSFER_DIRECT_PUT( YaST, XML_NS_WSMAN_YAST ),		// Put
-//  END_POINT_TRANSFER_DIRECT_DELETE( YaST, XML_NS_WSMAN_YAST ),	// Delete
-//  END_POINT_ENUMERATE( YaST, XML_NS_WSMAN_YAST ),			// Enumerate
-//  END_POINT_DIRECT_PULL( YaST, XML_NS_WSMAN_YAST ),			// Pull
-//  END_POINT_RELEASE( YaST, XML_NS_WSMAN_YAST ),			// Release
-  END_POINT_CUSTOM_METHOD( YaST, XML_NS_WSMAN_YAST ),			// Custom
-FINISH_END_POINTS( YaST );
+START_END_POINTS( t_YaST )
+  END_POINT_IDENTIFY( t_YaST, XML_NS_WSMAN_YAST ),			// Identify
+//  END_POINT_TRANSFER_DIRECT_CREATE( t_YaST, XML_NS_WSMAN_YAST ),	// Create
+//  END_POINT_TRANSFER_DIRECT_GET( t_YaST, XML_NS_WSMAN_YAST ),		// Get
+//  END_POINT_TRANSFER_DIRECT_PUT( t_YaST, XML_NS_WSMAN_YAST ),		// Put
+//  END_POINT_TRANSFER_DIRECT_DELETE( t_YaST, XML_NS_WSMAN_YAST ),	// Delete
+//  END_POINT_ENUMERATE( t_YaST, XML_NS_WSMAN_YAST ),			// Enumerate
+//  END_POINT_DIRECT_PULL( t_YaST, XML_NS_WSMAN_YAST ),			// Pull
+//  END_POINT_RELEASE( t_YaST, XML_NS_WSMAN_YAST ),			// Release
+  END_POINT_CUSTOM_METHOD( t_YaST, XML_NS_WSMAN_YAST ),			// Custom
+FINISH_END_POINTS( t_YaST );
 
 
 // ************** Array of name spaces for resource ****************
 //
 
-START_NAMESPACES( YaST )
+START_NAMESPACES( t_YaST )
     ADD_NAMESPACE( XML_NS_WSMAN_YAST, "YaST" ),
-FINISH_NAMESPACES( YaST );
+FINISH_NAMESPACES( t_YaST );
 
 
 // register namespaces with server
@@ -106,12 +106,12 @@ set_namespaces(void)
   int i;
 
   list_t *l = list_create(LISTCOUNT_T_MAX);
-  for (i = 0; YaST_Namespaces[i].ns != NULL; i++)
+  for (i = 0; t_YaST_Namespaces[i].ns != NULL; i++)
   {
     lnode_t *node;
     WsSupportedNamespaces *ns = (WsSupportedNamespaces *)u_malloc(sizeof(WsSupportedNamespaces));
-    ns->class_prefix = YaST_Namespaces[i].class_prefix;
-    ns->ns = (char*) YaST_Namespaces[i].ns;
+    ns->class_prefix = t_YaST_Namespaces[i].class_prefix;
+    ns->ns = (char*) t_YaST_Namespaces[i].ns;
     debug( "YaST prefix:namespace [%s:%s]", ns->class_prefix, ns->ns );
     node = lnode_create(ns);
     list_append(l, node);
@@ -138,7 +138,7 @@ void get_endpoints(void *self, void **data)
     ifc->wsmanResourceUri = NULL;
     ifc->extraData = NULL;
     ifc->namespaces = set_namespaces();
-    ifc->endPoints = YaST_EndPoints;			
+    ifc->endPoints = t_YaST_EndPoints;			
 }
 
 
