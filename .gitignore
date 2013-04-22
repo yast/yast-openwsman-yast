@@ -23,3 +23,6 @@ openwsman-yast.spec
 stamp-h1
 wsman_yast_config.h
 wsman_yast_config.h.in
+*.tar
+*.gz
+*.bz2
