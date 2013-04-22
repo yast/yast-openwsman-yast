@@ -16,18 +16,26 @@
 #
 
 Name:           openwsman-yast
-Version:       @PACKAGE_VERSION@
+Version:        @PACKAGE_VERSION@
 Release:        2
 License:        BSD-3-Clause
-Url:            http://build.opensuse.org/project/show?project=systemsmanagement%3Awbem
+Url:            http://build.opensuse.org/project/show?project=systemsmanagement:wbem
 Source:         %{name}-%{version}.tar.bz2
+Source1:        %{name}-rpmlintrc
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 Group:          System/Management
-BuildRequires:  openwsman >= 2.2.0 libwsman-devel >= 2.2.0 gcc-c++ pkgconfig libxml2-devel yast2-core-devel
+BuildRequires:  gcc-c++
+BuildRequires:  libwsman-devel >= 2.2.0
+BuildRequires:  libxml2-devel
+BuildRequires:  openwsman >= 2.2.0
+BuildRequires:  pkgconfig
+BuildRequires:  yast2-core-devel
+%if 0%{?suse_version} < 1220
+BuildRequires:  libxcrypt-devel
+%endif
 Requires:       openwsman-server >= 2.2.0
-Requires:	yast2-core
+Requires:       yast2-core
 Summary:        YaST plugin for openwsman-server
-
 
 %description
 This package provides a YaST plugin for wsmand, the WS Management
